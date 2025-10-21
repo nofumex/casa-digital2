@@ -18,7 +18,7 @@ type Body = {
 };
 
 const verifyEnvironmentVars = () => {
-  const requiredVars = ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID', 'TELEGRAM_ADMIN_ID'];
+  const requiredVars = ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_ADMIN_ID'];
   const missingVars = requiredVars.filter(varName => !process.env[varName]);
   
   if (missingVars.length > 0) {
@@ -40,7 +40,6 @@ export async function POST(req: Request) {
     }
 
     const token = process.env.TELEGRAM_BOT_TOKEN!;
-    const chatId = process.env.TELEGRAM_CHAT_ID!;
     const adminId = process.env.TELEGRAM_ADMIN_ID!;
 
     // Get request metadata
@@ -72,7 +71,7 @@ export async function POST(req: Request) {
     const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text: lines })
+      body: JSON.stringify({ chat_id: adminId, text: lines })
     });
 
     if (!res.ok) {
