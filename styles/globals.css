@@ -1,0 +1,40 @@
+/* Смещение пунктов меню вниз */
+.nav-lower {
+  transform: translateY(6px);
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-from: #ffffff;
+  --bg-to: #E6E6FA;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-gradient-to-br from-[var(--bg-from)] to-[var(--bg-to)] text-slate-800 antialiased;
+}
+
+/* Fluid organic shapes via clip-path utility classes */
+.blob {
+  clip-path: path('M75.8,-20.3C84.6,1.1,67.8,34.5,41.6,51.2C15.3,67.9,-20.3,67.8,-39.6,51.1C-58.8,34.3,-61.6,1,-50.7,-23.2C-39.9,-47.5,-15.5,-62.7,9.5,-63.9C34.6,-65,69.2,-52,75.8,-20.3Z');
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.casadigital.example/api/sitemap
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+.container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0; /* sits behind .z-[1] content wrapper */
+  /* Very light base color */
+  background: transparent;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  /* Default variables live on the local layer for CSS Modules */
+  --gx: 50%;
+  --gy: 40%;
+  --gAngle: 0deg;
+  --gOpacity: 0.75;
+  /* Default palette (very subtle, light) */
+  --c1: rgba(180,220,255,1);
+  --c2: rgba(130,200,255,0.95);
+  --c3: rgba(255,255,255,0.95);
+  opacity: var(--gOpacity);
+  filter: blur(56px);
+  will-change: transform, opacity;
+  background-image:
+    radial-gradient(600px 600px at var(--gx) var(--gy), var(--c1), transparent 60%),
+    radial-gradient(500px 500px at calc(100% - var(--gx)) calc(100% - var(--gy)), var(--c2), transparent 65%),
+    radial-gradient(700px 700px at 30% 70%, var(--c3), transparent 60%),
+    linear-gradient(var(--gAngle), rgba(255,255,255,0.4), rgba(247,250,252,0.2));
+}
+
+@media (max-width: 768px) {
+  .layer {
+    --gOpacity: 0.55;
+    filter: blur(50px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer {
+    transition: none !important;
+  }
+}
+

@@ -1,0 +1,19 @@
+import { notFound } from 'next/navigation';
+import cases from '@/public/cms/cases.json';
+import { CaseStudyClient } from './CaseStudyClient';
+
+export async function generateStaticParams() {
+  return cases.cases.map((caseStudy: any) => ({
+    slug: caseStudy.id,
+  }));
+}
+
+export default function CaseStudyPage({ params }: { params: { slug: string } }) {
+  const caseStudy = cases.cases.find((c: any) => c.id === params.slug);
+
+  if (!caseStudy) {
+    notFound();
+  }
+
+  return <CaseStudyClient caseStudy={caseStudy} />;
+}
