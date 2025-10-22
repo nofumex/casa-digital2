@@ -217,7 +217,7 @@ export default async function PricingPage() {
             <div className="mt-6">
               <h4 className="font-semibold text-sm text-slate-800 mb-3">Что входит:</h4>
               <ul className="space-y-2">
-                {pkg.includes.map((item, idx) => (
+                {pkg.includes.map((item: string, idx: number) => (
                   <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
                     <span className="text-paleTeal text-xs mt-1">•</span>
                     {item}

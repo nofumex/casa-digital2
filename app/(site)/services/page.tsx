@@ -127,7 +127,7 @@ export default async function ServicesPage() {
               <div>
                 <h3 className="font-semibold text-slate-800">Что входит:</h3>
                 <ul className="mt-2 space-y-1">
-                  {service.includes.map((item, idx) => (
+                  {service.includes.map((item: string, idx: number) => (
                     <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
                       <span className="text-paleTeal">•</span>
                       {item}
@@ -139,7 +139,7 @@ export default async function ServicesPage() {
               <div>
                 <h3 className="font-semibold text-slate-800">Процесс:</h3>
                 <ul className="mt-2 space-y-1">
-                  {service.process.map((step, idx) => (
+                  {service.process.map((step: string, idx: number) => (
                     <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
                       <span className="text-paleTeal">{String(idx + 1)}.</span>
                       {step}
