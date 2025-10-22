@@ -5,10 +5,20 @@ export const metadata = {
 
 import Link from 'next/link';
 
+interface ValueItem {
+  title: string;
+  description: string;
+}
+
+interface ProcessStep {
+  title: string;
+  description: string;
+}
+
 export default async function AboutPage() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || ''}/cms/about.json`, { cache: 'no-store' }).catch(()=>null);
   const aboutData = res && res.ok ? await res.json() : null as any;
-  const fallbackValues = [
+  const fallbackValues: ValueItem[] = [
     { 
       title: 'Результат превыше всего', 
       description: 'Мы работаем до достижения ваших целей, а не просто до выполнения задач.' 
@@ -26,8 +36,8 @@ export default async function AboutPage() {
       description: 'Всегда на связи для вопросов и текущей поддержки.' 
     }
   ];
-  const values = aboutData?.values || fallbackValues;
-  const steps = aboutData?.process || [
+  const values: ValueItem[] = aboutData?.values || fallbackValues;
+  const steps: ProcessStep[] = aboutData?.process || [
     { 
       title: 'Знакомство', 
       description: 'Изучаем ваш бизнес, цели и задачи. Определяем стратегию развития.' 
