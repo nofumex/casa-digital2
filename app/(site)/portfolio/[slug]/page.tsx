@@ -26,7 +26,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
     description: (rawCase as any).shortDescription || (rawCase as any).fullDescription || '',
     challenge: (rawCase as any).task || '',
     solution: (rawCase as any).solution || '',
-    results: rawCase.results || [],
+    results: (rawCase.results || []).map((r: any) => typeof r === 'string' ? r : r.value),
     technologies: rawCase.technologies || [],
     features: rawCase.features || [],
     testimonial: (rawCase as any).review ? {
