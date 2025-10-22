@@ -79,8 +79,8 @@ export async function POST(req: Request) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
         chat_id: adminId, 
-        text: lines,
-        parse_mode: 'HTML'
+        text: lines
+        // parse_mode removed to avoid HTML parsing errors with special characters
       })
     });
 
